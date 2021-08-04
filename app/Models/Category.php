@@ -11,6 +11,9 @@ class Category extends Model
 {
     use HasFactory, Sluggable;
 
+    protected $fillable = ['title'];
+
+
     /**
      * Return the sluggable configuration array for this model.
      *
