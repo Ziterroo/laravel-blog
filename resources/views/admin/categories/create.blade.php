@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="title">Название категории</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="title"
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
                            placeholder="Название категории" name="title">
                 </div>
             </div>
