@@ -22,12 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::group(['prefix' => 'admin'], function () {
-   Route::get('/', [MainController::class, 'index'])->name('admin.index');
-   Route::resource('/categories', CategoryController::class);
-   Route::resource('/tags', TagController::class);
-   Route::resource('/posts', PostController::class);
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/', [MainController::class, 'index'])->name('admin.index');
+    Route::resource('/categories', CategoryController::class);
+    Route::resource('/tags', TagController::class);
+    Route::resource('/posts', PostController::class);
 });
 
-Route::get('/register', [UserController::class, 'create'])->name('user.create');
-Route::post('/register', [UserController::class, 'store'])->name('user.store');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [UserController::class, 'create'])->name('user.create');
+    Route::post('/register', [UserController::class, 'store'])->name('user.store');
+    Route::get('/login', [UserController::class, 'loginForm'])->name('user.loginForm');
+    Route::post('/login', [UserController::class, 'login'])->name('user.login');
+});
+
+Route::get('logout', [UserController::class, 'logout'])->name('user.logout')->middleware('auth');
