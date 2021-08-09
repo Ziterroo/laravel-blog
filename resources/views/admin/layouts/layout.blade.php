@@ -6,7 +6,8 @@
     <title>AdminLTE 3 | Blank Page</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('/public/assets/admin/css/admin.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -37,7 +38,8 @@
                 <div class="navbar-search-block">
                     <form class="form-inline">
                         <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                   aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-navbar" type="submit">
                                     <i class="fas fa-search"></i>
@@ -61,7 +63,8 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{ asset('public/assets/admin/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="{{ asset('public/assets/admin/img/user1-128x128.jpg') }}" alt="User Avatar"
+                                 class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -77,7 +80,8 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{ asset('public/assets/admin/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="{{ asset('public/assets/admin/img/user8-128x128.jpg') }}" alt="User Avatar"
+                                 class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -93,7 +97,8 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{ asset('public/assets/admin/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="{{ asset('public/assets/admin/img/user3-128x128.jpg') }}" alt="User Avatar"
+                                 class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -154,7 +159,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ url('/') }}" class="brand-link" target="_blank">
-            <img src="{{ asset('public/assets/admin/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="{{ asset('public/assets/admin/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+                 class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">На сайт</span>
         </a>
 
@@ -163,7 +169,8 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ asset('public/assets/admin/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('public/assets/admin/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                         alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Alexander Pierce</a>
@@ -173,7 +180,8 @@
             <!-- SidebarSearch Form -->
             <div class="form-inline">
                 <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
+                           aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-sidebar">
                             <i class="fas fa-search fa-fw"></i>
@@ -270,27 +278,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <div class="container mt-2">
-            <div class="row">
-                <div class="col-12">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="list-unstyled">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    @if (session()->has('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
+        @include('flash')
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
@@ -310,13 +298,12 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
 <script src="{{ asset('/public/assets/admin/js/admin.js') }}"></script>
 <script>
-    $('.nav-sidebar a').each(function(){
+    $('.nav-sidebar a').each(function () {
         let location = window.location.protocol + '//' + window.location.host + window.location.pathname;
         let link = this.href;
-        if(link == location){
+        if (link == location) {
             $(this).addClass('active');
             $(this).closest('.has-treeview').addClass('menu-open');
         }
