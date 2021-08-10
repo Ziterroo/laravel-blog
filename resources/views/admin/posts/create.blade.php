@@ -19,12 +19,12 @@
                     <label for="description">Описание статьи</label>
                     <textarea class="form-control @error('description') is-invalid @enderror" rows="3"
                               placeholder="Описание статьи" id="description"
-                              name="description"></textarea>
+                              name="description">{{ old('description') }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="content">Текст статьи</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" rows="3"
-                              placeholder="Текст статьи" id="content" name="content"></textarea>
+                              placeholder="Текст статьи" id="content" name="content">{{ old('content') }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="category_id">Выберите категорию</label>
