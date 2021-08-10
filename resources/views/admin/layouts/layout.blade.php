@@ -318,7 +318,7 @@
 <script src="{{ asset('/public/assets/admin/ckfinder/ckfinder.js') }}"></script>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#content' ), {
+        .create(document.querySelector('#content'), {
             ckfinder: {
                 uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
             },
@@ -353,18 +353,22 @@
                     'imageStyle:side'
                 ]
             },
-        } )
-        .catch( function( error ) {
-            console.error( error );
-        } );
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
 
     ClassicEditor
-        .create( document.querySelector( '#description' ), {
-            toolbar: ['heading', '|', 'bold', 'italic', '|', 'undo', 'redo' ]
-        } )
-        .catch( function( error ) {
-            console.error( error );
-        } );
+        .create(document.querySelector('#description'), {
+            toolbar: ['heading', '|', 'bold', 'italic', '|', 'undo', 'redo']
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+
+    $(function () {
+        bsCustomFileInput.init();
+    });
 </script>
 </body>
 </html>
