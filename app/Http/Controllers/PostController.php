@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::with('category')->orderByDesc('id')->paginate(4);
+        return view('posts.index', compact('posts'));
     }
 
-    public function show()
+    public function show($slug)
     {
+//        $post = Post::with('tags')->where('slug', $slug)->get();
         return view('posts.show');
     }
 }

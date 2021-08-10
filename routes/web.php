@@ -20,7 +20,8 @@ use App\Http\Controllers\PostController as Post;
 */
 
 Route::get('/', [Post::class, 'index'])->name('home');
-Route::get('/show', [Post::class, 'show'])->name('home')->name('post.show');
+Route::get('/show/{slug}', [Post::class, 'show'])->name('home.show');
+Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.index');
