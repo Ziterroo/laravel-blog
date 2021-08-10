@@ -80,8 +80,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
-        session()->flash('success', 'Категория удалена!');
-        return redirect()->route('categories.index');
+        $category = Category::find($id);
+        if ($category->posts->count()) {
+            return redirect()->route('categories.index')->with('error', 'Ошибка! У тега есть записи!');
+        }
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'Категория удалена!');
     }
 }

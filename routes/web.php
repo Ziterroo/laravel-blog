@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController as Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [Post::class, 'index'])->name('home');
+Route::get('/show', [Post::class, 'show'])->name('home')->name('post.show');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.index');
