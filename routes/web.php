@@ -7,8 +7,8 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController as Post;
-use \App\Http\Controllers\CategoryController as Category;
-
+use App\Http\Controllers\CategoryController as Category;
+use App\Http\Controllers\TagController as Tag;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +23,7 @@ use \App\Http\Controllers\CategoryController as Category;
 Route::get('/', [Post::class, 'index'])->name('home');
 Route::get('/show/{slug}', [Post::class, 'show'])->name('home.show');
 Route::get('/category/{slug}', [Category::class, 'show'])->name('category.show');
-Route::get('/tag/{slug}', [TagController::class, 'show'])->name('tag.show');
+Route::get('/tag/{slug}', [Tag::class, 'show'])->name('tag.show');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.index');
