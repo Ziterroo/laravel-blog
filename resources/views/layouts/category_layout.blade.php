@@ -29,13 +29,7 @@
                 </button>
                 <a class="navbar-brand" href="{{ route('home') }}"><img src="/public/assets/front/images/version/market-logo.png" alt=""></a>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        @foreach($categories as $category)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+                    @include('layouts.category')
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -44,17 +38,16 @@
             </nav>
         </div><!-- end container-fluid -->
     </header><!-- end market-header -->
-    @yield('header')
-
-    <section class="section lb @if(!request()->is('/')) m3rem @endif">
+        @yield('page-title')
+    <section class="section lb">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    @yield('content')
-                </div><!-- end col -->
-
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     @include('layouts.sidebar')
+                </div><!-- end col -->
+
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    @yield('content')
                 </div><!-- end col -->
             </div><!-- end row -->
         </div><!-- end container -->

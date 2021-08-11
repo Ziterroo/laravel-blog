@@ -29,13 +29,7 @@
                 </button>
                 <a class="navbar-brand" href="{{ route('home') }}"><img src="/public/assets/front/images/version/market-logo.png" alt=""></a>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        @foreach($categories as $category)
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
+                    @include('layouts.category')
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
