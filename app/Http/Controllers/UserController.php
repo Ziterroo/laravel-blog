@@ -59,6 +59,6 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('user.login');
+        return redirect()->route('home')->with('success', 'Вы успешно вышли с аккаунта');
     }
 }
