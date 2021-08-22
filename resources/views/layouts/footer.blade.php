@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="widget">
-                    <h2 class="widget-title">Recent Posts</h2>
+                    <h2 class="widget-title">Недавние посты</h2>
                     <div class="blog-list-widget">
                         <div class="list-group">
                             @foreach($recentPosts as $post)
@@ -24,7 +24,7 @@
 
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="widget">
-                    <h2 class="widget-title">Popular Posts</h2>
+                    <h2 class="widget-title">Популярные посты</h2>
                     <div class="blog-list-widget">
                         <div class="list-group">
                             @foreach($popularPosts as $post)
@@ -51,7 +51,7 @@
 
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="widget">
-                    <h2 class="widget-title">Popular Categories</h2>
+                    <h2 class="widget-title">Популярные категории</h2>
                     <div class="link-widget">
                         <ul>
                             @foreach($categories as $category)

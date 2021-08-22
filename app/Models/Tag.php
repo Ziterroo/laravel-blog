@@ -12,6 +12,9 @@ class Tag extends Model
 
     protected $fillable = ['title'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function posts()
     {
         return $this->belongsToMany(Post::class);

@@ -16,10 +16,26 @@
                                href="{{ route('category.show', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
                         </li>
                     @endforeach
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('user.logout') }}">Выйти</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('user.store') }}">Регистрация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('user.login') }}">Вход</a>
+                        </li>
+                    @endif
+
                 </ul>
                 <form class="form-inline" method="get" action="{{ route('search') }}">
                     <input class="form-control mr-sm-2" type="text" placeholder="Найти" name="search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
                 </form>
             </div>
         </nav>
