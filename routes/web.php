@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController as Post;
@@ -24,6 +25,8 @@ Route::get('/', [Post::class, 'index'])->name('home');
 Route::get('/show/{slug}', [Post::class, 'show'])->name('home.show');
 Route::get('/category/{slug}', [Category::class, 'show'])->name('category.show');
 Route::get('/tag/{slug}', [Tag::class, 'show'])->name('tag.show');
+
+Route::get('/search}', [SearchController::class, 'index'])->name('search');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.index');
